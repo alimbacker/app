@@ -28,7 +28,8 @@ function About(){return <><Header title="About" sub="What you're running, and wh
 function Empty({text,button,action}:{text:string;button:string;action:()=>void}){return <div className="empty"><p>{text}</p><button onClick={action}>{button}</button></div>}
 function Field({label,children}:{label:string;children:any}){return <label className="field"><b>{label}</b>{children}</label>}
 function SettingToggle({label,desc,value,on}:{label:string;desc:string;value:boolean;on:()=>void}){return <div className="toggle"><div><b>{label}</b><small>{desc}</small></div><button className={value?'on':''} onClick={on}><i/></button></div>}
-if(new URLSearchParams(window.location.search).get('companion')==='1') return <CompanionWindow/>;
+const isCompanion=new URLSearchParams(window.location.search).get('companion')==='1';
+if(isCompanion) return <CompanionWindow/>;
 return <div className="app"><aside><div className="brand">ALLBEE FOCUS<small>Focus. Grow. Achieve.</small></div>{nav.map(n=><button className={page===n[0]?'nav active':'nav'} onClick={()=>setPage(n[0])} key={n[0]}><span>{n[1]}</span>{n[2]}</button>)}<div className="saved">● Saved</div></aside><main><div className="top"><div className="live"><span className="dot"/> {running?'Focus session running':'Ready'}</div><div className="topcoins">🪙 {state.coins} • Lv {state.level}</div></div><Page/></main><div className="companion"><div className="bubble">{running?'Stay focused!':'Ready to focus?'}</div><div className="desktopAvatar">{iconFor(comp.id)}</div></div></div>}
 declare global{interface Window{api:any}}
 createRoot(document.getElementById('root')!).render(<App/>);
