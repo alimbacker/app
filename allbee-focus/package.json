@@ -1,0 +1,10 @@
+{
+  "name":"allbee-focus",
+  "version":"1.0.0",
+  "description":"AllBee Focus — Focus. Grow. Achieve.",
+  "main":"dist-electron/main.js",
+  "scripts":{"dev":"concurrently -k \"vite --host 127.0.0.1\" \"wait-on http://127.0.0.1:5173 && electron .\"","build":"tsc -b && vite build && tsc -p electron/tsconfig.json && electron-builder","build:renderer":"vite build","build:electron":"tsc -p electron/tsconfig.json","preview":"vite preview"},
+  "dependencies":{"@vitejs/plugin-react":"latest","electron-store":"latest","react":"latest","react-dom":"latest","ws":"latest"},
+  "devDependencies":{"concurrently":"latest","electron":"latest","electron-builder":"latest","typescript":"latest","vite":"latest","wait-on":"latest","@types/node":"latest","@types/react":"latest","@types/react-dom":"latest"},
+  "build":{"appId":"com.allbee.focus","productName":"AllBee Focus","files":["dist/**/*","dist-electron/**/*","package.json"],"win":{"target":["nsis","portable"],"artifactName":"AllBee-Focus-Setup.exe"},"extraResources":[{"from":"extension","to":"extension"}]}
+}

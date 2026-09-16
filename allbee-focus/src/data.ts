@@ -1,0 +1,33 @@
+import {Companion} from './types';
+export const companions:Companion[]=[
+{id:'cat',name:'Cat',kind:'pet',personality:'Calm • Sleepy • Friendly',power:'Calm Focus',rarity:'common',unlockLevel:1},
+{id:'dog',name:'Dog',kind:'pet',personality:'Energetic • Encouraging • Loyal',power:'Motivation Boost',rarity:'common',unlockLevel:1},
+{id:'rabbit',name:'Rabbit',kind:'pet',personality:'Fast • Cheerful • Playful',power:'Speed Boost',rarity:'common',unlockLevel:2},
+{id:'fox',name:'Fox',kind:'pet',personality:'Smart • Curious • Clever',power:'Focus Insight',rarity:'uncommon',unlockLevel:3},
+{id:'panda',name:'Panda',kind:'pet',personality:'Relaxed • Calm',power:'Rest Bonus',rarity:'uncommon',unlockLevel:4},
+{id:'koala',name:'Koala',kind:'pet',personality:'Gentle • Patient',power:'Energy Restore',rarity:'uncommon',unlockLevel:5},
+{id:'hamster',name:'Hamster',kind:'pet',personality:'Busy • Cheerful',power:'Task Boost',rarity:'common',unlockLevel:5},
+{id:'frog',name:'Frog',kind:'pet',personality:'Playful • Fresh',power:'Reset Boost',rarity:'common',unlockLevel:6},
+{id:'penguin',name:'Penguin',kind:'pet',personality:'Precise • Loyal',power:'Consistency',rarity:'uncommon',unlockLevel:7},
+{id:'owl',name:'Owl',kind:'pet',personality:'Study-focused • Wise',power:'Study Boost',rarity:'rare',unlockLevel:8},
+{id:'lion',name:'Lion',kind:'pet',personality:'Confident • Motivational',power:'Courage',rarity:'rare',unlockLevel:10},
+{id:'tiger',name:'Tiger',kind:'pet',personality:'Strong • Determined',power:'Distraction Shield',rarity:'rare',unlockLevel:12},
+{id:'dragon',name:'Dragon',kind:'pet',personality:'Rare • Powerful',power:'Focus Fire',rarity:'epic',unlockLevel:20},
+{id:'unicorn',name:'Unicorn',kind:'pet',personality:'Positive • Magical',power:'Joy Boost',rarity:'epic',unlockLevel:25},
+{id:'red-panda',name:'Red Panda',kind:'pet',personality:'Curious • Friendly',power:'Streak Guard',rarity:'rare',unlockLevel:15},
+{id:'bee',name:'AllBee Bee',kind:'pet',personality:'Friendly • Productive • Helpful',power:'AllBee Boost',rarity:'mythic',unlockLevel:30},
+{id:'volt',name:'Volt',kind:'hero',personality:'Fast • Energetic • Motivating',power:'Speed Boost',rarity:'rare',unlockLevel:8},
+{id:'blaze',name:'Blaze',kind:'hero',personality:'Bold • Passionate',power:'Motivation Boost',rarity:'rare',unlockLevel:10},
+{id:'aqua',name:'Aqua',kind:'hero',personality:'Calm • Focused',power:'Calm Focus',rarity:'uncommon',unlockLevel:6},
+{id:'aero',name:'Aero',kind:'hero',personality:'Playful • Fast',power:'Productivity Boost',rarity:'rare',unlockLevel:9},
+{id:'terra',name:'Terra',kind:'hero',personality:'Disciplined • Patient',power:'Streak Protection',rarity:'epic',unlockLevel:15},
+{id:'shadow',name:'Shadow',kind:'hero',personality:'Quiet • Mysterious',power:'Distraction Shield',rarity:'epic',unlockLevel:18},
+{id:'solara',name:'Solara',kind:'hero',personality:'Positive • Encouraging',power:'XP Boost',rarity:'epic',unlockLevel:20},
+{id:'frost',name:'Frost',kind:'hero',personality:'Calm • Precise',power:'Time Freeze',rarity:'rare',unlockLevel:12},
+{id:'guardian',name:'Guardian',kind:'hero',personality:'Reliable • Protective',power:'Focus Protection',rarity:'legendary',unlockLevel:25},
+{id:'nova',name:'Nova',kind:'hero',personality:'Ambitious • Powerful',power:'Super XP',rarity:'legendary',unlockLevel:35},
+{id:'byte',name:'Byte',kind:'hero',personality:'Smart • Technology-focused • Coding-focused',power:'Coding Boost',rarity:'epic',unlockLevel:18},
+{id:'orbit',name:'Orbit',kind:'hero',personality:'Curious • Adventurous',power:'Long Session Bonus',rarity:'epic',unlockLevel:22},
+{id:'bee-hero',name:'AllBee Hero',kind:'hero',personality:'Friendly • Intelligent • Motivational',power:'AllBee Boost',rarity:'mythic',unlockLevel:40}
+];
+export const iconFor=(id:string)=>{const m:Record<string,string>={cat:'🐱',dog:'🐶',rabbit:'🐰',fox:'🦊',panda:'🐼',koala:'🐨',hamster:'🐹',frog:'🐸',penguin:'🐧',owl:'🦉',lion:'🦁',tiger:'🐯',dragon:'🐲',unicorn:'🦄','red-panda':'🦊',bee:'🐝',volt:'⚡',blaze:'🔥',aqua:'🌊',aero:'🌪',terra:'🌱',shadow:'🌑',solara:'☀️',frost:'❄️',guardian:'🛡️',nova:'✨',byte:'💻',orbit:'🚀','bee-hero':'🐝'};return m[id]||'✦'};
