@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AllBee Focus</title><link rel="stylesheet" href="/style.css">
+<style>body{margin:0;background:#07131f;color:#eef7f7} .web-note{position:fixed;right:18px;top:18px;z-index:999;background:#102b39;border:1px solid #245063;border-radius:10px;padding:8px 12px;font:12px Segoe UI,Arial;color:#9fd7cf}</style>
+</head>
+<body>
+<div class="web-note">AllBee Focus Web Preview</div>
+<div id="app"></div>
+<script>
+window.allbee={
+  async getState(){try{return JSON.parse(localStorage.getItem('allbee-focus-state')||'null')||{userName:'',companionId:'bee',companionName:'AllBee Bee',level:1,xp:0,coins:0,dailyGoal:60,focusToday:0,totalFocus:0,sessions:0,tasksCompleted:0,currentStreak:0,bestStreak:0,happiness:75,energy:100,rules:[],tasks:[],settings:{patrol:true,enforcement:'complain',countdown:3,snooze:5,position:'bottom',wander:true,alwaysOnTop:false,speech:true,notifications:true,startup:false}}}catch(e){location.reload()}},
+  saveState(s){localStorage.setItem('allbee-focus-state',JSON.stringify(s));return Promise.resolve(s)},
+  refreshCompanion(){},
+  notify(title,body){if('Notification' in window&&Notification.permission==='granted')new Notification(title,{body});else if('Notification' in window&&Notification.permission==='default')Notification.requestPermission()},
+  onCommand(){ }
+};
+</script>
+<script src="/app.js"></script>
+</body></html>

@@ -1,0 +1,9 @@
+{
+  "name":"allbee-focus",
+  "version":"1.0.0",
+  "description":"AllBee Focus — Focus. Grow. Achieve.",
+  "main":"main.js",
+  "scripts":{"start":"electron .","dist":"electron-builder --win nsis portable"},
+  "devDependencies":{"electron":"^38.1.0","electron-builder":"^26.0.12"},
+  "build":{"appId":"in.alimsahib.allbeefocus","productName":"AllBee Focus","files":["main.js","preload.js","renderer/**/*","extension/**/*"],"win":{"target":["nsis","portable"],"artifactName":"AllBee-Focus-Setup.exe"},"nsis":{"oneClick":false,"allowToChangeInstallationDirectory":true,"createDesktopShortcut":true,"createStartMenuShortcut":true}}
+}
