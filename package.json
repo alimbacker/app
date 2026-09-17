@@ -1,9 +1,91 @@
 {
-  "name":"allbee-focus",
-  "version":"1.0.0",
-  "description":"AllBee Focus — Focus. Grow. Achieve.",
-  "main":"main.js",
-  "scripts":{"start":"electron .","dist":"electron-builder --win nsis portable"},
-  "devDependencies":{"electron":"^38.1.0","electron-builder":"^26.0.12"},
-  "build":{"appId":"in.alimsahib.allbeefocus","productName":"AllBee Focus","files":["main.js","preload.js","renderer/**/*","extension/**/*"],"win":{"target":["nsis","portable"],"artifactName":"AllBee-Focus-Setup.exe"},"nsis":{"oneClick":false,"allowToChangeInstallationDirectory":true,"createDesktopShortcut":true,"createStartMenuShortcut":true}}
+  "name": "allbee-focus",
+  "productName": "AllBee Focus",
+  "version": "1.0.0",
+  "description": "AllBee Focus - a gamified focus companion for Windows. Focus. Grow. Achieve.",
+  "author": "AllBee",
+  "license": "UNLICENSED",
+  "private": true,
+  "main": "dist/main/main.js",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build:renderer": "vite build",
+    "build:main": "node scripts/build-main.mjs",
+    "build:helper": "bash scripts/build-helper.sh",
+    "build": "npm run build:renderer && npm run build:main",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "icons": "node scripts/generate-icons.mjs",
+    "art:sheet": "node scripts/render-art-sheet.mjs",
+    "start": "electron .",
+    "smoke": "node scripts/smoke.mjs",
+    "dist:win": "npm run typecheck && npm test && npm run build && electron-builder --win nsis portable --x64 --publish never",
+    "dist:dir": "npm run build && electron-builder --win dir --x64 --publish never"
+  },
+  "devDependencies": {
+    "@fontsource-variable/figtree": "5.3.0",
+    "@fontsource-variable/unbounded": "5.3.0",
+    "@resvg/resvg-js": "2.6.2",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "autoprefixer": "10.4.21",
+    "electron": "44.4.1",
+    "electron-builder": "26.15.3",
+    "esbuild": "0.25.12",
+    "lucide-react": "1.46.0",
+    "postcss": "8.5.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.9.3",
+    "vite": "7.3.6",
+    "vitest": "3.2.7"
+  },
+  "build": {
+    "appId": "com.allbee.focus",
+    "productName": "AllBee Focus",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/helper",
+        "to": "helper"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "AllBee Focus",
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "AllBee-Focus-Setup.exe"
+    },
+    "portable": {
+      "artifactName": "AllBee-Focus.exe"
+    }
+  }
 }
