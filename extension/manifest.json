@@ -1,1 +1,1 @@
-{"manifest_version":3,"name":"AllBee Focus Browser Companion","version":"1.0.0","description":"Provides the AllBee Focus desktop app with the active browser tab URL.","permissions":["tabs"],"host_permissions":["<all_urls>"],"background":{"service_worker":"background.js"},"action":{"default_title":"AllBee Focus"}}
+{"manifest_version":3,"name":"AllBee Focus Companion","version":"1.0.0","description":"Provides active-tab URL information to AllBee Focus on localhost.","permissions":["tabs"],"host_permissions":["<all_urls>"],"background":{"service_worker":"background.js"}}

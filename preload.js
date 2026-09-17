@@ -1,0 +1,2 @@
+const {contextBridge,ipcRenderer}=require('electron');
+contextBridge.exposeInMainWorld('allbee',{getState:()=>ipcRenderer.invoke('state'),saveState:s=>ipcRenderer.invoke('save',s),notify:(title,body)=>ipcRenderer.send('notify',{title,body}),quit:()=>ipcRenderer.send('quit'),refreshCompanion:()=>ipcRenderer.send('companion-refresh'),onCommand:cb=>ipcRenderer.on('command',(_,c)=>cb(c)),onRefresh:cb=>ipcRenderer.on('refresh',(_,s)=>cb(s))});

@@ -1,21 +1,20 @@
-# AllBee Focus - Windows Build
+# AllBee Focus — Windows build
 
 ## Development
-Open PowerShell in this folder:
+1. Install Node.js LTS on Windows.
+2. Open PowerShell in this folder.
+3. Run `npm install`.
+4. Run `npm start`.
 
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-.\START-DEV-WINDOWS.ps1
-```
+## Installer
+Run `npm run dist`.
+The `dist` folder will contain `AllBee-Focus-Setup.exe` and a portable Windows build.
 
-## Create the Windows installer
+## Browser monitoring
+Chrome/Edge/Brave can use the included Manifest V3 extension. Load the `extension` folder from the browser's extension developer page. The desktop app exposes a localhost bridge and does not fake URL monitoring when the extension is absent.
 
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass
-.\BUILD-WINDOWS.ps1
-```
-
-The configured electron-builder targets are NSIS and portable Windows builds. The NSIS artifact is named `AllBee-Focus-Setup.exe`.
-
-## Important
-Install Node.js LTS first. The application requires Windows for the final Electron packaging and Windows tray/desktop integration.
+## Architecture
+- `main.js`: Electron main process, tray, persistent storage, main window, companion window.
+- `preload.js`: secure IPC bridge.
+- `renderer/`: dashboard and transparent companion UI.
+- `extension/`: active-tab bridge.
